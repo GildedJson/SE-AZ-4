@@ -5,14 +5,14 @@ package codeGenerator;
  */
 
 public abstract class Address {
-    public int num;
-    public TypeAddress Type;
-    public varType varType;
+    private int num;
+    private TypeAddress Type;
+    private varType varType;
 
     public Address(int num, varType varType, TypeAddress Type) {
-        this.num = num;
-        this.Type = Type;
-        this.varType = varType;
+        this.setNum(num);
+        this.setType(Type);
+        this.setVarType(varType);
     }
 
 //    public Address(int num, varType varType) {
@@ -22,6 +22,30 @@ public abstract class Address {
 //    }
 
     public abstract String toString();
+
+    public int getNum() {
+        return num;
+    }
+
+    public void setNum(int num) {
+        this.num = num;
+    }
+
+    public TypeAddress getType() {
+        return Type;
+    }
+
+    public void setType(TypeAddress type) {
+        Type = type;
+    }
+
+    public codeGenerator.varType getVarType() {
+        return varType;
+    }
+
+    public void setVarType(codeGenerator.varType varType) {
+        this.varType = varType;
+    }
 }
 
 class DirectAddress extends Address{
@@ -31,7 +55,7 @@ class DirectAddress extends Address{
 
     @Override
     public String toString() {
-        return num + "";
+        return getNum() + "";
     }
 }
 
@@ -42,7 +66,7 @@ class IndirectAddress extends Address{
 
     @Override
     public String toString() {
-        return "@" + num;
+        return "@" + getNum();
     }
 }
 
@@ -53,6 +77,6 @@ class ImmediateAddress extends Address{
 
     @Override
     public String toString() {
-        return "#" + num;
+        return "#" + getNum();
     }
 }

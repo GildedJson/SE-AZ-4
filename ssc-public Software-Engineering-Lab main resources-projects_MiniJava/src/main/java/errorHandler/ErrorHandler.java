@@ -7,6 +7,10 @@ package errorHandler;
 public class ErrorHandler {
     public static boolean hasError = false;
 
+    public static boolean isHasError() {
+        return hasError;
+    }
+
     public static void printError(String msg) {
         hasError = true;
         System.out.println(msg);
